@@ -1,0 +1,36 @@
+# Node modules folder
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+
+# Output folder for compiled JavaScript (if using TypeScript)
+dist/
+
+# TypeScript build info file
+*.tsbuildinfo
+
+# Environment variables file
+.env
+
+
+# IDE/editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Misc
+*.swp
+*.lock

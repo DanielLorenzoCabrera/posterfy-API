@@ -1,0 +1,31 @@
+{
+  "name": "posterfy_api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tsx watch src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielLorenzoCabrera/posterfy-API.git"
+  },
+  "author": "Daniel Lorenzo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielLorenzoCabrera/posterfy-API/issues"
+  },
+  "homepage": "https://github.com/DanielLorenzoCabrera/posterfy-API#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.14",
+    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}

@@ -6,8 +6,8 @@ const app = express();
 const port = 3000;
 
 app.get("/", async (request, response) => {
-  response.send("");
   await getAuthToken();
+  response.send("");
 });
 
 app.listen(port, () => {

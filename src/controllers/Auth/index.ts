@@ -1,7 +1,7 @@
 import type { AxiosResponse } from "axios";
 import api from "../../config/axios";
 import AUTH_SERVICE from "./routes";
-import type { APIResponse, ServerError } from "../../types/HTTPService";
+import type { APIResponse } from "../../types/HTTPService";
 import type { SpotifyCredentials } from "../../types/Auth";
 import { handleServerError } from "../../utils/HTTPUtils";
 

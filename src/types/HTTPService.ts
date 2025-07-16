@@ -3,4 +3,6 @@ export type ServerError = {
   message: string;
 };
 
-export type APIResponse<T> = Promise<T>;
+export type APIResponse<T> = Promise<
+  ServerError | { status: number; content: T }
+>;

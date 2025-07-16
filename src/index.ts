@@ -1,15 +1,6 @@
-import express from "express";
-import "./config";
-import { getAuthToken } from "./controllers/Auth";
+import { useInitializeApp } from "./config/hooks/useInitializeApp";
+import AuthRoutes from "./routes/auth";
 
-const app = express();
-const port = 3000;
+const { app } = useInitializeApp();
 
-app.get("/", async (request, response) => {
-  await getAuthToken();
-  response.send("");
-});
-
-app.listen(port, () => {
-  console.log("app running on port " + port);
-});
+app.use("/", AuthRoutes);

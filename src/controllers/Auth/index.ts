@@ -1,9 +1,9 @@
 import type { AxiosResponse } from "axios";
-import api from "../../config/axios";
+import api from "config/axios";
 import AUTH_SERVICE from "./routes";
-import type { APIResponse } from "../../types/HTTPService";
-import type { SpotifyCredentials } from "../../types/Auth";
-import { handleServerError } from "../../utils/HTTPUtils";
+import type { APIResponse } from "types/HTTPService";
+import type { SpotifyCredentials } from "types/Auth";
+import { handleServerError } from "utils/HTTPUtils";
 
 export const getAuthToken =
   async (): APIResponse<SpotifyCredentials | void> => {

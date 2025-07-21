@@ -1,5 +1,5 @@
 import { useInitializeApp } from "./config/hooks/useInitializeApp";
-import AuthRoutes from "./routes/auth";
+import AuthRoutes from "./router/auth";
 
 const { app } = useInitializeApp();
 

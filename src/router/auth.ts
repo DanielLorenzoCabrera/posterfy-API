@@ -16,7 +16,7 @@ router.get("/", async (request: Request, response: Response) => {
     const successResponse = APIresponse.value;
     response.cookie("token", successResponse.content, {
       httpOnly: true,
-      secure: true,
+      secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
       maxAge: 24 * 60 * 60 * 1000,
     });

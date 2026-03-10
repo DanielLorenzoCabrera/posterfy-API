@@ -16,7 +16,7 @@ export const getAuthToken = async (): Promise<
       return { type: "left", value: ERRORS.UNAUTHORIZED };
 
     const auth: string = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString(
-      "base64"
+      "base64",
     );
     const { data, status }: AxiosResponse = await apiService.post(
       AUTH_SERVICE.TOKEN,
@@ -25,9 +25,8 @@ export const getAuthToken = async (): Promise<
         headers: {
           Authorization: `Basic ${auth}`,
         },
-      }
+      },
     );
-    console.log(data);
     return {
       type: "right",
       value: { status, content: data as SpotifyCredentials },

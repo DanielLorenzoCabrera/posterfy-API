@@ -3,6 +3,7 @@ import { Router, type Request, type Response } from "express";
 import { handleServerError } from "utils/HTTPUtils";
 
 const router = Router();
+const LIMIT = 100;
 
 router.get("/", async (request: Request, response: Response) => {
   try {
@@ -22,19 +23,25 @@ router.get("/", async (request: Request, response: Response) => {
       });
     }
 
-    const spotifyResponse = await axios.get(
-      `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        params: {
-          limit: 100,
-        },
-      },
-    );
+    let items: any[] = [];
+    let total: number = LIMIT;
 
-    const items = spotifyResponse.data.items;
+    while (items.length < total) {
+      const spotifyResponse = await axios.get(
+        `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
+        {
+          headers: {
+            Authorization: `Bearer ${token.access_token}`,
+          },
+          params: {
+            limit: LIMIT,
+          },
+        },
+      );
+
+      items = [...items, ...spotifyResponse.data.items];
+      total = spotifyResponse.data.total;
+    }
 
     const coversSet = new Set<string>();
 
@@ -46,6 +53,9 @@ router.get("/", async (request: Request, response: Response) => {
     });
 
     const covers = Array.from(coversSet);
+    console.log(
+      `Extracted ${covers.length} unique covers from playlist ${playlistId}`,
+    );
 
     return response.status(200).json({
       covers,
